@@ -3,16 +3,16 @@ CC		:=gcc
 CFLAGS	:=-Wall -g -O2 
 
 TARGET	:=server
-SRCS	:=select_2.c sharedMutex.c
+SRCS	:=select.c sharedMutex.c
 OBJS	:=$(SRCS:.c=.o)
 TARGET2	:=client
-SRCS2	:=FF_client.c
+SRCS2	:=client.c
 
 
 $(TARGET)	:$(OBJS)
 	$(CC) $(CFLAGS) -o $@ $^ -lrt -lpthread
 
-select_2.o	: select_2.c
+select.o	: select.c
 	$(CC) $(CFLAGS) -c -o $@ $< -I.
 
 sharedMutex.o	: sharedMutex.c
